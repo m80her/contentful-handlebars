@@ -13,11 +13,11 @@ I got so far with the [Contentful Javascript SDK docs](https://www.contentful.co
 
 From CDNs we've got some jQuery, and the pre-built versions of Handlebars and Contentful SDK (not recommended for production).
 
-        ```javascript
-        <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
-        ```
+```javascript
+<script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+```
       
 
 ### The Contefulful bit
