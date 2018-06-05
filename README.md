@@ -46,7 +46,7 @@ var renderTemplates = (templateId, target) => {
 At this point we can browse the data structure and see what things are called, so it's a good time to build out a little Handlebars template using basic [Handlebars expressions](https://handlebarsjs.com/expressions.html) as a test that will loop over, for example, `items` and display, for example, all the `fields.title`.
 
 ```html
-<script id="template" type="text/template">
+<script id="templateTitles" type="text/template">
   {{#items}}
       <li>{{fields.title}}</li>
   {{/items}}
@@ -57,14 +57,14 @@ At this point we can browse the data structure and see what things are called, s
 Once we've got the template in place, in the `renderTemplates` function we reference the content of the template:
 
 ```javascript
-var template = $(templateId).html();
+var templateTitles = $(templateId).html();
 ```
       
 
 Then compile the template in the Javascript (again, not recommended for production) and tell it which HTML element to append the compiled output to:
 
 ```javascript
-var payload = Handlebars.compile(template)(entries);
+var payload = Handlebars.compile(templateTitles)(entries);
 $(target).append(payload);
 ```
       
@@ -75,12 +75,12 @@ The whole function with invocation looks like this:
 var renderTemplates = (templateId, target) => {
   client.getEntries()
     .then(function(entries) {
-      var template = $(templateId).html();
-      var payload = Handlebars.compile(template)(entries);
+      var templateTitles = $(templateId).html();
+      var payload = Handlebars.compile(templateTitles)(entries);
       $(target).append(payload);
     });
 }
-renderTemplates('#template', '#titles');
+renderTemplates('#templateTitles', '#titles');
 ```
 
 ## Conclusion
