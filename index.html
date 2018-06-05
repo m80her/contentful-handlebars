@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Quick Contentful & Handlesbars setup</title> 
+    <meta name="description" content="A quick implementation for displaying data from Contentful using Handlebars.js - not intended for production.">
+  </head>
+  <body>
+    <main>
+      <div id="demo"></div>
+    </main>
+ 
+    <script id="templateTitles" type="text/template">
+      <ul>
+        {{#items}}
+          <li>{{fields.title}}</li>
+        {{/items}}
+      </ul>
+    </script>
+      
+    <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+ 
+    <script>
+
+      var client = contentful.createClient({
+        space: '<space_id>',
+        accessToken: '<access_token>'
+      });
+
+      var renderTemplates = (templateId, target) => {
+
+        client.getEntries()
+          .then((entries) => {
+            var templateTitles = $(templateId).html();
+            var payload = Handlebars.compile(templateTitles)(entries);
+            $(target).append(payload);
+          });
+      }
+      renderTemplates('#templateTitles', '#demo');
+    </script>
+
+  </body>
+</html>
