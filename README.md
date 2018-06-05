@@ -43,7 +43,7 @@ var renderTemplates = (templateId, target) => {
 
 ### The Handlebars bit
 
-At this point we can browse the data structure and see what things are called, so it's a good time to build out a little Handlebars template using basic [Handlebars expressions](https://handlebarsjs.com/expressions.html) as a test that will loop over, for exmpale, `items` and display, for exmaple, all the `fields.title`.
+At this point we can browse the data structure and see what things are called, so it's a good time to build out a little Handlebars template using basic [Handlebars expressions](https://handlebarsjs.com/expressions.html) as a test that will loop over, for example, `items` and display, for example, all the `fields.title`.
 
 ```html
 <script id="template" type="text/template">
