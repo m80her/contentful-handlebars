@@ -45,7 +45,7 @@ var renderTemplates = (templateId, target) => {
 
 At this point we can browse the data structure and see what things are called, so it's a good time to build out a little Handlebars template using basic [Handlebars expressions](https://handlebarsjs.com/expressions.html) as a test that will loop over, for exmpale, `items` and display, for exmaple, all the `fields.title`.
 
-```javascript
+```html
 <script id="template" type="text/template">
   {{#items}}
       <li>{{fields.title}}</li>
@@ -56,7 +56,9 @@ At this point we can browse the data structure and see what things are called, s
 
 Once we've got the template in place, in the `renderTemplates` function we reference the content of the template:
 
-        `var template = $(templateId).html();` 
+```javascript
+var template = $(templateId).html();
+```
       
 
 Then compile the template in the Javascript (again, not recommended for production) and tell it which HTML element to append the compiled output to:
