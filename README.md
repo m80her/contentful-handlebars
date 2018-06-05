@@ -20,7 +20,7 @@ From CDNs we've got some jQuery, and the pre-built versions of Handlebars and Co
 ```
       
 
-### The Contefulful bit
+### The Contentful bit
 
 First up we need to shake hands with the Contentful API:
 
@@ -32,7 +32,7 @@ var client = contentful.createClient({
 ``` 
       
 
-Then we get the data, returning `entires.json`:
+Then we get the data, returning `entries.json`:
 
 ```javascript
 var renderTemplates = (templateId, target) => {
