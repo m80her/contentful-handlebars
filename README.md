@@ -34,20 +34,24 @@ var client = contentful.createClient({
 
 Then we get the data, returning `entires.json`:
 
-        `var renderTemplates = (templateId, target) => {
-              client.getEntries();
-            }` 
+```javascript
+var renderTemplates = (templateId, target) => {
+  client.getEntries();
+}
+``` 
       
 
 ### The Handlebars bit
 
 At this point we can browse the data structure and see what things are called, so it's a good time to build out a little Handlebars template using basic [Handlebars expressions](https://handlebarsjs.com/expressions.html) as a test that will loop over, for exmpale, `items` and display, for exmaple, all the `fields.title`.
 
-        `<script id="template" type="text/template">
-            {{#items}}
-                <li>{{fields.title}}</li>
-            {{/items}}
-          </script>` 
+```javascript
+<script id="template" type="text/template">
+  {{#items}}
+      <li>{{fields.title}}</li>
+  {{/items}}
+</script>
+```
       
 
 Once we've got the template in place, in the `renderTemplates` function we reference the content of the template:
@@ -57,21 +61,25 @@ Once we've got the template in place, in the `renderTemplates` function we refer
 
 Then compile the template in the Javascript (again, not recommended for production) and tell it which HTML element to append the compiled output to:
 
-        `var payload = Handlebars.compile(template)(entries);
-          $(target).append(payload);` 
+```javascript
+var payload = Handlebars.compile(template)(entries);
+$(target).append(payload);
+```
       
 
 The whole function with invocation looks like this:
 
-        `var renderTemplates = (templateId, target) => {
-            client.getEntries()
-              .then(function(entries) {
-                var template = $(templateId).html();
-                var payload = Handlebars.compile(template)(entries);
-                $(target).append(payload);
-              });
-          }
-          renderTemplates('#template', '#titles');` 
+```javascript
+var renderTemplates = (templateId, target) => {
+  client.getEntries()
+    .then(function(entries) {
+      var template = $(templateId).html();
+      var payload = Handlebars.compile(template)(entries);
+      $(target).append(payload);
+    });
+}
+renderTemplates('#template', '#titles');
+```
 
 ## Conclusion
 
